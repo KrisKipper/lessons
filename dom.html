@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Lessons</title>
+
+    <link href="vendors/swiper/swiper-bundle.css" rel="stylesheet">
+    <link href="vendors/splide/splide-core.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+<main>
+    <div class="container">
+        <h1>Упражнения по JavaScript</h1>
+        
+        <section class="section s-exercises">
+
+
+            <h2>1. Смена классов</h2>
+
+
+            <div class="s-exercises__exercise" id="js1a">
+                <p>При нажатии на кнопку (#changeColor) класс _theme_pink должен удалиться и установиться класс
+                    _theme_blue. После чего к кнопке добавить класс _disabled</p>
+                <div class="s-exercises__circle _change-color _theme_pink"></div>
+                <button class="button _theme_blue _size_m" id="changeColor" type="button"><span class="button__text">Сменить цвет</span>
+                </button>
+            </div>
+
+
+            <div class="s-exercises__exercise" id="js1b">
+                <p>При нажатии на кнопку (#toggleColor) класс _theme_pink должен переключаться на _theme_blue и при
+                    повторном клике обратно</p>
+                <div class="s-exercises__circle _toggle-color _theme_pink"></div>
+                <button class="button _theme_blue _size_m" id="toggleColor" type="button"><span class="button__text">Переключить цвет</span>
+                </button>
+            </div>
+
+
+            <h2>2. Удаление элементов</h2>
+
+
+            <div class="s-exercises__exercise" id="js2">
+                <p>При нажатии на кнопку (#deleteBtn) удалить все круги в этой области</p>
+                <div class="s-exercises__content">
+                    <div class="s-exercises__circle _theme_pink _size_sm"></div>
+                    <div class="s-exercises__circle _theme_pink _size_sm"></div>
+                    <div class="s-exercises__circle _theme_pink _size_sm"></div>
+                    <div class="s-exercises__circle _theme_pink _size_sm"></div>
+                </div>
+                <button class="button _theme_blue _size_m" id="deleteBtn" type="button"><span class="button__text">Удалить круги</span>
+                </button>
+            </div>
+
+
+            <h2>3. Работа с атрибутами</h2>
+
+
+            <div class="s-exercises__exercise" id="js3">
+                <p>При нажатии на кнопку (#addAttr) у всех кружков в этой области должен добавляться атрибут
+                    `data-active="true"`.</p>
+                <p>При нажатии на кнопку (#removeAttr) у всех кружков в этой области должен удалиться атрибут
+                    `data-active`.</p>
+                <div class="s-exercises__content">
+                    <div class="s-exercises__circle _theme_pink _size_sm"></div>
+                    <div class="s-exercises__circle _theme_pink _size_sm"></div>
+                    <div class="s-exercises__circle _theme_pink _size_sm"></div>
+                </div>
+                <div class="s-exercises__buttons">
+                    <button class="button _theme_blue _size_m" id="addAttr" type="button"><span class="button__text">Добавить атрибут</span>
+                    </button>
+                    <button class="button _theme_pink _size_m" id="removeAttr" type="button"><span class="button__text">Удалить атрибут</span>
+                    </button>
+                </div>
+            </div>
+
+
+            <h2>4. Изменение текста</h2>
+
+
+            <div class="s-exercises__exercise" id="js4">
+                <p>При нажатии на кнопку (#changeText) текст внутри кружка должен измениться на "Я изменён!"</p>
+                <div class="s-exercises__circle _theme_pink">Я изменюсь!</div>
+                <button class="button _theme_blue _size_m" id="changeText" type="button"><span class="button__text">Изменить текст</span>
+                </button>
+            </div>
+
+
+            <h2>5. Скрытие элементов</h2>
+
+
+            <div class="s-exercises__exercise" id="js5">
+                <p>При нажатии на кнопку (#hideCircles) все кружки в этой области должны скрыться (используй `display:
+                    none`)</p>
+                <div class="s-exercises__content">
+                    <div class="s-exercises__circle _theme_pink _size_sm"></div>
+                    <div class="s-exercises__circle _theme_pink _size_sm"></div>
+                    <div class="s-exercises__circle _theme_pink _size_sm"></div>
+                </div>
+                <button class="button _theme_blue _size_m" id="hideCircles" type="button"><span class="button__text">Скрыть кружки</span>
+                </button>
+            </div>
+
+
+            <h2>6. Создание/ удаление элементов</h2>
+
+
+            <div class="s-exercises__exercise" id="js6">
+                <p>При нажатии на кнопку (#createFromInput) создаётся новый круг с текстом, введённым в поле.</p>
+                <div class="s-exercises__content">
+                    <div class="s-exercises__circle _theme_pink">Привет!</div>
+                </div>
+                <input class="s-exercises__input" placeholder="Введите текст" type="text">
+                <button class="button _theme_blue _size_m" id="createFromInput" type="button"><span
+                        class="button__text">Создать круг с текстом</span></button>
+            </div>
+
+
+            <h2>7. Использование alert</h2>
+
+
+            <div class="s-exercises__exercise" id="js7">
+                <p>При нажатии на кнопку (#showAlertAndLog) отобразить сообщение с текстом "Это alert!" (используй
+                    alert)</p>
+                <button class="button _theme_blue _size_m" id="showAlertAndLog" type="button"><span
+                        class="button__text">Показать alert и log</span></button>
+            </div>
+
+
+            <h2>8. Использование setTimeout</h2>
+
+
+            <div class="s-exercises__exercise" id="js8">
+                <p>При нажатии на кнопку (#showDelayedMessage) через 3 секунды в консоли должно появиться сообщение
+                    "Прошло 3 секунды!", а текст внутри круга должен измениться на "Таймер сработал!".</p>
+                <div class="s-exercises__circle _theme_pink">Ожидаю...</div>
+                <button class="button _theme_blue _size_m" id="showDelayedMessage" type="button"><span
+                        class="button__text">Запустить таймер</span></button>
+            </div>
+
+
+            <h2>9. Перемещение элемента</h2>
+
+
+            <div class="s-exercises__exercise" id="js9">
+                <p>При нажатии на кнопку (#moveCircle) круг должен переместиться из левой области блока
+                    .s-exercises__content в правую и наоборот.</p>
+                <div class="s-exercises__content">
+                    <div class="s-exercises__left">
+                        <div class="s-exercises__circle _theme_pink _size_sm" id="movableCircle"></div>
+                    </div>
+                    <div class="s-exercises__right"></div>
+                </div>
+                <button class="button _theme_blue _size_m" id="moveCircle" type="button"><span class="button__text">Переместить круг</span>
+                </button>
+            </div>
+
+
+            <h2>10. Работа с методами массива</h2>
+
+
+            <div class="s-exercises__exercise" id="js10">
+                <p>У тебя есть массив чисел: `[1, 2, 3, 4, 5]`. При нажатии на кнопку (#processArray) должны выполниться
+                    следующие действия:</p>
+                <ul>
+                    <li>Все числа должны быть увеличены на 1.</li>
+                    <li>Отфильтровать только чётные числа.</li>
+                    <li>Получившийся массив должен быть выведен в консоль.</li>
+                </ul>
+                <button class="button _theme_blue _size_m" id="processArray" type="button"><span class="button__text">Обработать массив</span>
+                </button>
+            </div>
+
+
+            <h2>11. Работа с методами строк</h2>
+
+
+            <div class="s-exercises__exercise" id="js11">
+                <p>У тебя есть строка: `"javascript is fun"`. При нажатии на кнопку (#processString) должны быть
+                    выполнены следующие действия:</p>
+                <ul>
+                    <li>Преобразовать строку в верхний регистр.</li>
+                    <li>Заменить все пробелы на подчеркивания ("_").</li>
+                    <li>Результат должен быть выведен в консоль.</li>
+                </ul>
+                <button class="button _theme_blue _size_m" id="processString" type="button"><span class="button__text">Обработать строку</span>
+                </button>
+            </div>
+
+        </section>
+    </div>
+</main>
+
+<script src="vendors/swiper/swiper-bundle.min.js"></script>
+<script src="vendors/splide/splide.min.js"></script>
+<script src="vendors/splide/splide-extension-auto-scroll.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+
+</html>
