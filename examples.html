@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Примеры решений JavaScript</title>
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<body class="container">
+<h1>Примеры решений JavaScript-задач</h1>
+
+<!-- Пример 1: Работа с классами -->
+<div class="example" id="example1">
+    <h2 class="example-title">1. Работа с классами</h2>
+    <p><strong>Задача:</strong> При клике на кнопку добавить/удалить класс у элемента.</p>
+
+    <div class="circle" id="targetCircle">Круг</div>
+    <button id="addClassBtn">Добавить класс</button>
+    <button id="removeClassBtn">Удалить класс</button>
+    <button id="toggleClassBtn">Переключить класс</button>
+
+    <h3>Решение:</h3>
+    <div class="code">
+            <pre>
+// Получаем элементы
+const circle = document.getElementById('targetCircle');
+const addBtn = document.getElementById('addClassBtn');
+const removeBtn = document.getElementById('removeClassBtn');
+const toggleBtn = document.getElementById('toggleClassBtn');
+
+// Добавляем обработчики событий
+addBtn.addEventListener('click', () => {
+    // Добавляем класс
+    circle.classList.add('highlight');
+    circle.textContent = 'Класс добавлен';
+});
+
+removeBtn.addEventListener('click', () => {
+    // Удаляем класс
+    circle.classList.remove('highlight');
+    circle.textContent = 'Класс удалён';
+});
+
+toggleBtn.addEventListener('click', () => {
+    // Переключаем класс
+    circle.classList.toggle('highlight');
+    circle.textContent = circle.classList.contains('highlight')
+        ? 'Класс есть'
+        : 'Класса нет';
+});</pre>
+    </div>
+    <p><strong>Пояснение:</strong> Используем методы classList.add(), classList.remove() и classList.toggle() для
+        управления классами элемента.</p>
+</div>
+
+<!-- Пример 2: Создание и удаление элементов -->
+<div class="example" id="example2">
+    <h2 class="example-title">2. Создание и удаление элементов</h2>
+    <p><strong>Задача:</strong> Создавать новые элементы при клике и удалять их.</p>
+
+    <div id="elementsContainer" style="margin: 15px 0;"></div>
+    <button id="createElementBtn">Создать элемент</button>
+    <button id="clearElementsBtn">Очистить всё</button>
+
+    <h3>Решение:</h3>
+    <div class="code">
+            <pre>
+const container = document.getElementById('elementsContainer');
+const createBtn = document.getElementById('createElementBtn');
+const clearBtn = document.getElementById('clearElementsBtn');
+
+createBtn.addEventListener('click', () => {
+    // Создаём новый элемент
+    const newElement = document.createElement('div');
+    newElement.className = 'circle';
+    newElement.textContent = `Элемент ${container.children.length + 1}`;
+
+    // Добавляем в контейнер
+    container.appendChild(newElement);
+});
+
+clearBtn.addEventListener('click', () => {
+    // Удаляем все дочерние элементы
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+});</pre>
+    </div>
+    <p><strong>Пояснение:</strong> Используем createElement() для создания и appendChild() для добавления элементов. Для
+        удаления - removeChild().</p>
+</div>
+
+<!-- Пример 3: Работа с атрибутами -->
+<div class="example" id="example3">
+    <h2 class="example-title">3. Работа с атрибутами</h2>
+    <p><strong>Задача:</strong> Добавлять и удалять атрибуты у элемента.</p>
+
+    <div class="circle" id="attrCircle">Проверь атрибуты</div>
+    <button id="setAttrBtn">Установить атрибут</button>
+    <button id="removeAttrBtn">Удалить атрибут</button>
+
+    <h3>Решение:</h3>
+    <div class="code">
+            <pre>
+const attrCircle = document.getElementById('attrCircle');
+const setAttrBtn = document.getElementById('setAttrBtn');
+const removeAttrBtn = document.getElementById('removeAttrBtn');
+
+setAttrBtn.addEventListener('click', () => {
+    // Устанавливаем атрибут
+    attrCircle.setAttribute('data-info', 'Это важные данные');
+    attrCircle.textContent = 'Атрибут установлен';
+});
+
+removeAttrBtn.addEventListener('click', () => {
+    // Удаляем атрибут
+    attrCircle.removeAttribute('data-info');
+    attrCircle.textContent = 'Атрибут удалён';
+});</pre>
+    </div>
+    <p><strong>Пояснение:</strong> Используем setAttribute() и removeAttribute() для управления атрибутами элемента.</p>
+</div>
+
+<!-- Пример 4: Перемещение элементов -->
+<div class="example" id="example4">
+    <h2 class="example-title">4. Перемещение элементов</h2>
+    <p><strong>Задача:</strong> Перемещать элемент между двумя областями.</p>
+
+    <div class="content-area">
+        <div class="left-area" id="leftArea">
+            <div class="circle" id="movableCircle">Перемести меня</div>
+        </div>
+        <div class="right-area" id="rightArea"></div>
+    </div>
+    <button id="moveElementBtn">Переместить элемент</button>
+
+    <h3>Решение:</h3>
+    <div class="code">
+            <pre>
+const movableCircle = document.getElementById('movableCircle');
+const leftArea = document.getElementById('leftArea');
+const rightArea = document.getElementById('rightArea');
+const moveBtn = document.getElementById('moveElementBtn');
+
+moveBtn.addEventListener('click', () => {
+    // Проверяем, где сейчас находится элемент
+    if (leftArea.contains(movableCircle)) {
+        // Перемещаем в правую область
+        rightArea.appendChild(movableCircle);
+    } else {
+        // Перемещаем в левую область
+        leftArea.appendChild(movableCircle);
+    }
+});</pre>
+    </div>
+    <p><strong>Пояснение:</strong> Используем contains() для проверки местоположения элемента и appendChild() для
+        перемещения.</p>
+</div>
+
+<!-- Пример 5: Таймеры и задержки -->
+<div class="example" id="example5">
+    <h2 class="example-title">5. Таймеры и задержки</h2>
+    <p><strong>Задача:</strong> Выполнить действие с задержкой.</p>
+
+    <div class="circle" id="timerCircle">Ожидание...</div>
+    <button id="startTimerBtn">Запустить таймер</button>
+    <button id="stopTimerBtn">Остановить таймер</button>
+
+    <h3>Решение:</h3>
+    <div class="code">
+            <pre>
+const timerCircle = document.getElementById('timerCircle');
+const startBtn = document.getElementById('startTimerBtn');
+const stopBtn = document.getElementById('stopTimerBtn');
+let timerId;
+
+startBtn.addEventListener('click', () => {
+    timerCircle.textContent = 'Таймер запущен...';
+
+    // Устанавливаем таймер на 3 секунды
+    timerId = setTimeout(() => {
+        timerCircle.textContent = 'Таймер сработал!';
+    }, 3000);
+});
+
+stopBtn.addEventListener('click', () => {
+    // Останавливаем таймер
+    clearTimeout(timerId);
+    timerCircle.textContent = 'Таймер остановлен';
+});</pre>
+    </div>
+    <p><strong>Пояснение:</strong> Используем setTimeout() для выполнения кода с задержкой и clearTimeout() для отмены.
+    </p>
+</div>
+
+<!-- Пример 6: Работа с массивами -->
+<div class="example" id="example6">
+    <h2 class="example-title">6. Работа с массивами</h2>
+    <p><strong>Задача:</strong> Преобразовать массив чисел.</p>
+
+    <button id="processArrayBtn">Обработать массив</button>
+    <div id="arrayOutput" style="margin-top: 15px;"></div>
+
+    <h3>Решение:</h3>
+    <div class="code">
+            <pre>
+const processBtn = document.getElementById('processArrayBtn');
+const outputDiv = document.getElementById('arrayOutput');
+
+processBtn.addEventListener('click', () => {
+    const numbers = [1, 2, 3, 4, 5];
+
+    // Увеличиваем каждое число на 1
+    const incremented = numbers.map(num => num + 1);
+
+    // Фильтруем чётные числа
+    const evenNumbers = incremented.filter(num => num % 2 === 0);
+
+    // Выводим результат
+    outputDiv.innerHTML = `
+        Исходный массив: [${numbers.join(', ')}]<br>
+        После увеличения: [${incremented.join(', ')}]<br>
+        Чётные числа: [${evenNumbers.join(', ')}]
+    `;
+
+    // Также выводим в консоль
+    console.log('Результат обработки массива:', evenNumbers);
+});</pre>
+    </div>
+    <p><strong>Пояснение:</strong> Используем методы map() для преобразования и filter() для фильтрации массива.</p>
+</div>
+
+<script src="js/examples.js"></script>
+</body>
+</html>
