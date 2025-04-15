@@ -136,3 +136,44 @@ function processArray() {
 }
 
 processBtn.addEventListener('click', processArray);
+
+
+// Пример 7: Работа с data-атрибутами и выбором цвета
+const colorRadios = document.querySelectorAll('input[name="bg-color"]');
+const colorDisplay = document.getElementById('colorDisplay');
+
+function handleColorChange() {
+    const selectedColor = this.dataset.color;
+
+    // Сохраняем цвет в data-атрибут
+    colorDisplay.dataset.bgColor = selectedColor;
+
+    // Применяем цвет
+    colorDisplay.style.backgroundColor = selectedColor;
+    colorDisplay.textContent = `Выбран цвет: ${this.value}`;
+
+    // Сохраняем в localStorage
+    localStorage.setItem('selectedBgColor', selectedColor);
+}
+
+// Добавляем обработчики для каждой радиокнопки
+colorRadios.forEach(radio => {
+    radio.addEventListener('change', handleColorChange);
+});
+
+// Восстанавливаем сохраненный цвет при загрузке
+function initColorPicker() {
+    const savedColor = localStorage.getItem('selectedBgColor');
+    if (savedColor) {
+        const radioToCheck = document.querySelector(`input[data-color="${savedColor}"]`);
+        if (radioToCheck) {
+            radioToCheck.checked = true;
+            colorDisplay.dataset.bgColor = savedColor;
+            colorDisplay.style.backgroundColor = savedColor;
+            colorDisplay.textContent = `Выбран цвет: ${radioToCheck.value}`;
+        }
+    }
+}
+
+// Инициализируем при загрузке страницы
+document.addEventListener('DOMContentLoaded', initColorPicker);

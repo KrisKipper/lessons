@@ -41,6 +41,20 @@ button {
 ul li,
 ol li {
     list-style-type: none;
+    padding-left: 20px;
+    position: relative;
+}
+
+ul li:before,
+ol li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: calc(50% - 4px);
+    background: #2c3e50;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
 }
 
 .overlay {
@@ -165,6 +179,7 @@ h1 {
     font-size: 48px;
     line-height: 54px;
     letter-spacing: -0.02em;
+    margin-bottom: 32px;
 }
 
 .navigation {
@@ -181,77 +196,12 @@ h1 {
     border-radius: 4px;
     transition: .3s ease;
     border: none;
-    position: relative;
-    margin-left: 12px;
-}
-
-.link:before {
-    content: "";
-    position: absolute;
-    left: -12px;
-    top: calc(50% - 4px);
-    height: 8px;
-    width: 8px;
-    border-radius: 50%;
-    background: rgba(112, 83, 206, 0.8);
 }
 
 .link:hover {
     background: rgba(112, 83, 243, 0.8);
 }
 
-.button {
-    width: 219px;
-    height: 68px;
-    border-radius: 40px;
-    font-size: 24px;
-    font-weight: 500;
-    text-align: center;
-    cursor: pointer;
-    border: none;
-    color: rgb(255, 255, 255);
-}
-
-.button._shadow {
-    box-shadow: 0 20px 40px -27px;
-}
-
-.button._theme_green {
-    background: rgb(78, 202, 48);
-}
-
-.button._theme_violet {
-    background: rgb(149, 93, 234);
-}
-
-.button._theme_blue {
-    background: rgb(1, 143, 163);
-}
-
-.button._theme_pink {
-    background: rgb(255, 76, 148);
-}
-
-.button._theme_orange {
-    background: rgb(255, 167, 36);
-}
-
-.button._theme_yellow {
-    background: rgb(250, 224, 26);
-}
-
-.button._size_m {
-    width: 244px;
-    height: 64px;
-    border-radius: 30px;
-    margin-top: 44px;
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-}
-
-.s-exercises h2 {
-    margin: 60px 0 30px;
-}
 
 .s-exercises p {
     margin-bottom: 20px;
@@ -261,13 +211,6 @@ h1 {
     margin: 10px 0 10px 20px;
 }
 
-.s-exercises__exercise {
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
 
 .s-exercises__circle {
     width: 200px;
@@ -389,17 +332,21 @@ h1 {
 }
 
 
-.example {
+.example, .s-exercises__exercise {
     background: #f5f5f5;
     padding: 15px;
     margin-bottom: 30px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.example-title {
+.example-title, .s-exercises h2 {
     color: #2c3e50;
     border-bottom: 2px solid #3498db;
     padding-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .code {
@@ -410,14 +357,47 @@ h1 {
     overflow-x: auto;
 }
 
-button {
+button, .button {
     background: #3498db;
-    color: white;
     border: none;
     padding: 8px 15px;
     border-radius: 4px;
     cursor: pointer;
     margin: 5px 0;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.button._shadow {
+    box-shadow: 0 20px 40px -27px;
+}
+
+.button._theme_green {
+    background: rgb(78, 202, 48);
+}
+
+.button._theme_violet {
+    background: rgb(149, 93, 234);
+}
+
+.button._theme_blue {
+    background: rgb(1, 143, 163);
+}
+
+.button._theme_pink {
+    background: rgb(255, 76, 148);
+}
+
+.button._theme_orange {
+    background: rgb(255, 167, 36);
+}
+
+.button._theme_yellow {
+    background: rgb(250, 224, 26);
 }
 
 button:hover {
@@ -455,3 +435,70 @@ ul {
     flex-direction: column;
     gap: 12px;
 }
+
+.color-picker {
+    margin: 15px 0;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.color-picker label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.color-display {
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin: 15px 0;
+    min-height: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.help {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.help__top {
+    cursor: pointer;
+    border-left: 5px solid #2c3e50;
+    padding-left: 16px;
+}
+
+.help__title {
+    color: #2c3e50;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.help__content {
+    opacity: 0;
+    height: 0;
+    transition: 0.3s ease;
+}
+
+.help.active .help__content {
+    opacity: 1;
+    height: max-content;
+}
+
+.explanation._mb-lg {
+    margin-bottom: 26px;
+}
+
+.explanation__title {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.explanation__list {
+    margin-top: 16px;
+}
+

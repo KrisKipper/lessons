@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Lessons</title>
+
+    <link href="vendors/swiper/swiper-bundle.css" rel="stylesheet">
+    <link href="vendors/splide/splide-core.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+<main>
+    <div class="container">
+        <h1>Упражнения по BOM</h1>
+
+        <div class="explanation _mb-lg">
+            <h2 class="explanation__title">Что такое BOM?</h2>
+            <p><strong>BOM (Browser Object Model)</strong> - это объектная модель браузера, которая позволяет JavaScript
+                взаимодействовать с браузером. В отличие от DOM (Document Object Model), который работает с содержимым
+                страницы, BOM предоставляет доступ к таким возможностям браузера как:</p>
+            <ul class="explanation__list">
+                <li>Управление окнами (открытие/закрытие)</li>
+                <li>Работа с таймерами (setTimeout, setInterval)</li>
+                <li>Доступ к информации о браузере (navigator)</li>
+                <li>Управление историей просмотров (history)</li>
+                <li>Работа с cookies и локальным хранилищем</li>
+                <li>Отображение диалоговых окон (alert, confirm, prompt)</li>
+            </ul>
+        </div>
+
+        <section class="section s-exercises">
+
+            <div class="s-exercises__exercise" id="js3-1">
+                <h2>1. Использование alert</h2>
+                <p>При нажатии на кнопку (#showAlertAndLog) отобразить сообщение с текстом "Это alert!" (используй
+                    alert)</p>
+                <button class="button _theme_blue" id="showAlertAndLog" type="button"><span
+                        class="button__text">Показать alert и log</span></button>
+                <div class="help">
+                    <div class="help__top">
+                        <h4 class="help__title">Подсказка:</h4>
+                    </div>
+                    <div class="help__content">
+                        Используй метод window.alert() и обработчик события click
+                    </div>
+                </div>
+            </div>
+
+            <div class="s-exercises__exercise" id="js4-1">
+                <h2>2. Использование setTimeout</h2>
+                <p>При нажатии на кнопку (#showDelayedMessage) через 3 секунды в консоли должно появиться сообщение
+                    "Прошло 3 секунды!", а текст внутри круга должен измениться на "Таймер сработал!".</p>
+                <div class="s-exercises__circle _theme_pink">Ожидаю...</div>
+                <button class="button _theme_blue" id="showDelayedMessage" type="button"><span
+                        class="button__text">Запустить таймер</span></button>
+                <div class="help">
+                    <div class="help__top">
+                        <h4 class="help__title">Подсказка:</h4>
+                    </div>
+                    <div class="help__content">
+                        Используй window.setTimeout() с задержкой 3000 мс. Для изменения текста в круге - измени
+                        свойство textContent элемента.
+                    </div>
+                </div>
+            </div>
+
+            <div class="s-exercises__exercise" id="js4-2">
+                <h2>3. Использование setInterval</h2>
+                <p>При нажатии на кнопку (#startCounter) запустите таймер, который каждую секунду будет увеличивать
+                    значение счетчика на 1 и выводить его в круг. Кнопка (#stopCounter) должна останавливать таймер.</p>
+                <div class="s-exercises__circle _theme_green">0</div>
+                <button class="button _theme_blue" id="startCounter" type="button"><span
+                        class="button__text">Старт</span></button>
+                <button class="button _theme_red" id="stopCounter" type="button"><span
+                        class="button__text">Стоп</span></button>
+                <div class="help">
+                    <div class="help__top">
+                        <h4 class="help__title">Подсказка:</h4>
+                    </div>
+                    <div class="help__content">
+                        Для запуска используй window.setInterval() с интервалом 1000 мс. Для остановки -
+                        clearInterval(). Не забудь сохранить ID интервала в переменную.
+                    </div>
+                </div>
+            </div>
+
+            <div class="s-exercises__exercise" id="js4-3">
+                <h2>4. Работа с окнами браузера</h2>
+                <p>Создайте кнопки для:</p>
+                <ul>
+                    <li>Открытия нового окна с адресом https://example.com</li>
+                    <li>Закрытия текущего окна (работает только если окно было открыто скриптом)</li>
+                    <li>Изменения размеров текущего окна</li>
+                </ul>
+                <button class="button _theme_blue" id="openWindow" type="button"><span
+                        class="button__text">Открыть окно</span></button>
+                <button class="button _theme_blue" id="closeWindow" type="button"><span
+                        class="button__text">Закрыть окно</span></button>
+                <button class="button _theme_blue" id="resizeWindow" type="button"><span
+                        class="button__text">Изменить размер (800x600)</span></button>
+                <div class="help">
+                    <div class="help__top">
+                        <h4 class="help__title">Подсказка:</h4>
+                    </div>
+                    <div class="help__content">
+                        <ul>
+                            <li>Для открытия: window.open(url)</li>
+                            <li>Для закрытия: window.close()</li>
+                            <li>Для изменения размеров: window.resizeTo(width, height)</li>
+                        </ul>
+                        Сохрани ссылку на открытое окно в переменную, чтобы потом его закрыть.
+                    </div>
+                </div>
+            </div>
+
+            <div class="s-exercises__exercise" id="js4-4">
+                <h2>5. Работа с location</h2>
+                <p>Создайте функционал для:</p>
+                <ul>
+                    <li>Показа текущего URL в консоли</li>
+                    <li>Перенаправления на https://google.com</li>
+                    <li>Перезагрузки текущей страницы</li>
+                </ul>
+                <button class="button _theme_blue" id="showUrl" type="button"><span
+                        class="button__text">Показать URL</span></button>
+                <button class="button _theme_blue" id="redirectToGoogle" type="button"><span
+                        class="button__text">Перейти на Google</span></button>
+                <button class="button _theme_blue" id="reloadPage" type="button"><span
+                        class="button__text">Перезагрузить</span></button>
+                <div class="help">
+                    <div class="help__top">
+                        <h4 class="help__title">Подсказка:</h4>
+                    </div>
+                    <div class="help__content">
+                        <ul>
+                            <li>Текущий URL: window.location.href</li>
+                            <li>Перенаправление: window.location.href = url</li>
+                            <li>Перезагрузка: window.location.reload()</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="s-exercises__exercise" id="js4-5">
+                <h2>6. Работа с confirm и prompt</h2>
+                <p>Создайте кнопки для:</p>
+                <ul>
+                    <li>Отображения confirm с вопросом "Вы уверены?" и выводом результата в консоль</li>
+                    <li>Отображения prompt с вопросом "Как вас зовут?" и выводом результата в alert</li>
+                </ul>
+                <button class="button _theme_blue" id="showConfirm" type="button"><span
+                        class="button__text">Показать confirm</span></button>
+                <button class="button _theme_blue" id="showPrompt" type="button"><span
+                        class="button__text">Показать prompt</span></button>
+                <div class="help">
+                    <div class="help__top">
+                        <h4 class="help__title">Подсказка:</h4>
+                    </div>
+                    <div class="help__content">
+                        <ul>
+                            <li>confirm(message) возвращает true/false</li>
+                            <li>prompt(message) возвращает введенную строку или null</li>
+                        </ul>
+                        Результаты выводи в консоль через console.log() или в alert через window.alert()
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</main>
+
+<script src="vendors/swiper/swiper-bundle.min.js"></script>
+<script src="vendors/splide/splide.min.js"></script>
+<script src="vendors/splide/splide-extension-auto-scroll.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/help.js"></script>
+</body>
+
+</html>

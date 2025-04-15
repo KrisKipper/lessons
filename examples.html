@@ -47,7 +47,8 @@ toggleBtn.addEventListener('click', () => {
     circle.textContent = circle.classList.contains('highlight')
         ? 'Класс есть'
         : 'Класса нет';
-});</pre>
+});
+            </pre>
     </div>
     <p><strong>Пояснение:</strong> Используем методы classList.add(), classList.remove() и classList.toggle() для
         управления классами элемента.</p>
@@ -230,6 +231,75 @@ processBtn.addEventListener('click', () => {
     <p><strong>Пояснение:</strong> Используем методы map() для преобразования и filter() для фильтрации массива.</p>
 </div>
 
-<script src="js/examples.js"></script>
+
+<!-- Пример 7: Работа с data-атрибутами и выбором цвета -->
+<div class="example" id="example7">
+    <h2 class="example-title">7. Выбор цвета через data-атрибуты</h2>
+    <p><strong>Задача:</strong> Позволить пользователю выбрать цвет фона и сохранить его в data-атрибут.</p>
+
+    <div class="color-picker">
+        <label>
+            <input data-color="#ff0000" name="bg-color" type="radio" value="red"> Красный
+        </label>
+        <label>
+            <input data-color="#0000ff" name="bg-color" type="radio" value="blue"> Синий
+        </label>
+        <label>
+            <input data-color="#00ff00" name="bg-color" type="radio" value="green"> Зеленый
+        </label>
+        <label>
+            <input data-color="#ffff00" name="bg-color" type="radio" value="yellow"> Желтый
+        </label>
+    </div>
+
+    <div class="color-display" data-bg-color="" id="colorDisplay">
+        Выбранный цвет будет отображен здесь
+    </div>
+
+    <h3>Решение:</h3>
+    <div class="code">
+            <pre>
+// Получаем элементы
+const colorRadios = document.querySelectorAll('input[name="bg-color"]');
+const colorDisplay = document.getElementById('colorDisplay');
+
+// Добавляем обработчики для каждой радиокнопки
+colorRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+        // Получаем цвет из data-атрибута
+        const selectedColor = this.dataset.color;
+
+        // Сохраняем цвет в data-атрибут элемента
+        colorDisplay.dataset.bgColor = selectedColor;
+
+        // Применяем цвет как фон
+        colorDisplay.style.backgroundColor = selectedColor;
+        colorDisplay.textContent = `Выбран цвет: ${this.value}`;
+
+        // Сохраняем выбор в localStorage
+        localStorage.setItem('selectedBgColor', selectedColor);
+    });
+});
+
+// При загрузке страницы проверяем сохраненный цвет
+document.addEventListener('DOMContentLoaded', function() {
+    const savedColor = localStorage.getItem('selectedBgColor');
+    if (savedColor) {
+        // Находим соответствующую радиокнопку и отмечаем ее
+        const radioToCheck = document.querySelector(`input[data-color="${savedColor}"]`);
+        if (radioToCheck) {
+            radioToCheck.checked = true;
+            colorDisplay.dataset.bgColor = savedColor;
+            colorDisplay.style.backgroundColor = savedColor;
+            colorDisplay.textContent = `Выбран цвет: ${radioToCheck.value}`;
+        }
+    }
+});</pre>
+    </div>
+    <p><strong>Пояснение:</strong> Используем data-атрибуты для хранения значений цветов, localStorage для сохранения
+        выбора между сессиями и dataset для работы с data-атрибутами в JavaScript.</p>
+</div>
+
+<script src="js/examples/examples.js"></script>
 </body>
 </html>
