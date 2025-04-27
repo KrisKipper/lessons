@@ -79,3 +79,43 @@ document.getElementById('showPrompt').addEventListener('click', function () {
         alert("Вы не ввели имя");
     }
 });
+
+
+// Работа с localStorage
+
+// 7. Сохранение данных в localStorage
+const saveInput = document.getElementById('saveInput');
+const saveButton = document.getElementById('saveButton');
+
+if (saveButton) {
+    saveButton.addEventListener('click', () => {
+        const text = saveInput.value.trim();
+        localStorage.setItem('savedText', text);
+        alert('Текст сохранён!');
+    });
+}
+
+// 8. Загрузка данных из localStorage
+const loadButton = document.getElementById('loadButton');
+
+if (loadButton) {
+    loadButton.addEventListener('click', () => {
+        const savedText = localStorage.getItem('savedText');
+        if (savedText) {
+            alert(`Сохранённый текст: ${savedText}`);
+        } else {
+            alert('Нет сохраненного текста.');
+        }
+    });
+}
+
+// 9. Очистка localStorage
+const clearStorageButton = document.getElementById('clearStorageButton');
+
+if (clearStorageButton) {
+    clearStorageButton.addEventListener('click', () => {
+        localStorage.clear();
+        alert('Хранилище очищено!');
+    });
+}
+
