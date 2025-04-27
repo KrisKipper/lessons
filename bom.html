@@ -161,6 +161,56 @@
                 </div>
             </div>
 
+            <div class="s-exercises__exercise" id="js5-1">
+                <h2>7. Сохранение данных в localStorage</h2>
+                <p>Создайте поле ввода (#saveInput) и кнопку сохранения (#saveButton). При клике на кнопку текст из поля
+                    должен сохраняться в localStorage под ключом "savedText".</p>
+                <input class="input _mb-sm" id="saveInput" placeholder="Введите текст..." type="text">
+                <button class="button _theme_blue" id="saveButton" type="button"><span class="button__text">Сохранить текст</span>
+                </button>
+                <div class="help">
+                    <div class="help__top">
+                        <h4 class="help__title">Подсказка:</h4>
+                    </div>
+                    <div class="help__content">
+                        Используй localStorage.setItem('ключ', 'значение') для сохранения данных.
+                    </div>
+                </div>
+            </div>
+
+            <div class="s-exercises__exercise" id="js5-2">
+                <h2>8. Загрузка данных из localStorage</h2>
+                <p>Создайте кнопку (#loadButton), при клике на которую текст из localStorage (ключ "savedText") будет
+                    отображаться в alert. Если данных нет — показывай сообщение "Нет сохраненного текста".</p>
+                <button class="button _theme_blue" id="loadButton" type="button"><span class="button__text">Загрузить текст</span>
+                </button>
+                <div class="help">
+                    <div class="help__top">
+                        <h4 class="help__title">Подсказка:</h4>
+                    </div>
+                    <div class="help__content">
+                        Используй localStorage.getItem('ключ') для получения данных. Проверь значение перед показом!
+                    </div>
+                </div>
+            </div>
+
+            <div class="s-exercises__exercise" id="js5-3">
+                <h2>9. Очистка localStorage</h2>
+                <p>Создайте кнопку (#clearStorageButton), при клике на которую будет полностью очищаться localStorage.
+                    Выводите alert с текстом "Хранилище очищено!".</p>
+                <button class="button _theme_red" id="clearStorageButton" type="button"><span class="button__text">Очистить localStorage</span>
+                </button>
+                <div class="help">
+                    <div class="help__top">
+                        <h4 class="help__title">Подсказка:</h4>
+                    </div>
+                    <div class="help__content">
+                        Используй метод localStorage.clear().
+                    </div>
+                </div>
+            </div>
+
+
         </section>
     </div>
 </main>
