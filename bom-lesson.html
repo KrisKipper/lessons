@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>BOM Урок</title>
+    <link href="vendors/swiper/swiper-bundle.css" rel="stylesheet">
+    <link href="vendors/splide/splide-core.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+<main>
+    <div class="container">
+        <h1>Практика по BOM</h1>
+
+        <div class="explanation _mb-lg">
+            <h2 class="explanation__title">Что такое BOM?</h2>
+            <p><strong>BOM</strong> (Browser Object Model) — это способ взаимодействия JavaScript с браузером вне
+                контента страницы.</p>
+            <ul class="explanation__list">
+                <li>Управление окнами и вкладками</li>
+                <li>Таймеры: setTimeout и setInterval</li>
+                <li>Доступ к навигатору, экрану и истории</li>
+                <li>Работа с URL и перенаправлением</li>
+                <li>Хранение данных в localStorage и sessionStorage</li>
+            </ul>
+        </div>
+
+        <section class="section s-exercises">
+
+            <div class="s-exercises__exercise" id="lesson1">
+                <h2>1. Вывод сообщения через alert</h2>
+                <p>При клике на кнопку (#simpleAlert) выведи alert с текстом "Привет, мир!".</p>
+                <button class="button _theme_blue" id="simpleAlert" type="button"><span class="button__text">Показать приветствие</span>
+                </button>
+            </div>
+
+            <div class="s-exercises__exercise" id="lesson2">
+                <h2>2. Отложенное сообщение через setTimeout</h2>
+                <p>Нажми на кнопку (#delayedText), через 2 секунды в консоли появится "Таймер завершён!".</p>
+                <button class="button _theme_blue" id="delayedText" type="button"><span class="button__text">Запустить таймер</span>
+                </button>
+            </div>
+
+            <div class="s-exercises__exercise" id="lesson3">
+                <h2>3. Секундомер через setInterval</h2>
+                <p>Кнопка (#startTimer) должна запускать секундомер в элементе (#timer), а (#stopTimer) — останавливать
+                    его.</p>
+                <div class="s-exercises__circle _theme_pink" id="timer">0</div>
+                <button class="button _theme_blue" id="startTimer" type="button"><span class="button__text">Старт</span>
+                </button>
+                <button class="button _theme_red" id="stopTimer" type="button"><span class="button__text">Стоп</span>
+                </button>
+            </div>
+
+            <div class="s-exercises__exercise" id="lesson4">
+                <h2>4. Открыть новое окно</h2>
+                <p>Создать кнопку (#newTab), которая откроет сайт https://developer.mozilla.org в новой вкладке.</p>
+                <button class="button _theme_blue" id="newTab" type="button"><span
+                        class="button__text">Открыть MDN</span></button>
+            </div>
+
+            <div class="s-exercises__exercise" id="lesson5">
+                <h2>5. Работа с location</h2>
+                <p>Создай три кнопки для:</p>
+                <ul>
+                    <li>Показа текущего адреса</li>
+                    <li>Перенаправления на YouTube</li>
+                    <li>Перезагрузки страницы</li>
+                </ul>
+                <button class="button _theme_blue" id="showLocation" type="button"><span class="button__text">Текущий адрес</span>
+                </button>
+                <button class="button _theme_blue" id="redirectYoutube" type="button"><span class="button__text">На YouTube</span>
+                </button>
+                <button class="button _theme_blue" id="reloadSite" type="button"><span class="button__text">Перезагрузить</span>
+                </button>
+            </div>
+
+            <div class="s-exercises__exercise" id="lesson6">
+                <h2>6. Confirm и Prompt</h2>
+                <p>Создать две кнопки:</p>
+                <ul>
+                    <li>Подтверждение действия через confirm</li>
+                    <li>Запрос имени пользователя через prompt</li>
+                </ul>
+                <button class="button _theme_blue" id="confirmAction" type="button"><span class="button__text">Подтвердить действие</span>
+                </button>
+                <button class="button _theme_blue" id="askName" type="button"><span
+                        class="button__text">Как вас зовут?</span></button>
+            </div>
+
+            <div class="s-exercises__exercise" id="lesson7">
+                <h2>7. Сохраняем текст в localStorage</h2>
+                <input class="input _mb-sm" id="inputText" placeholder="Введите текст..." type="text">
+                <button class="button _theme_blue" id="saveText" type="button"><span
+                        class="button__text">Сохранить</span></button>
+            </div>
+
+            <div class="s-exercises__exercise" id="lesson8">
+                <h2>8. Загружаем текст из localStorage</h2>
+                <button class="button _theme_blue" id="loadText" type="button"><span class="button__text">Показать сохранённый текст</span>
+                </button>
+            </div>
+
+            <div class="s-exercises__exercise" id="lesson9">
+                <h2>9. Очистить localStorage</h2>
+                <button class="button _theme_red" id="clearStorage" type="button"><span class="button__text">Очистить всё</span>
+                </button>
+            </div>
+
+        </section>
+    </div>
+</main>
+
+<script src="vendors/swiper/swiper-bundle.min.js"></script>
+<script src="vendors/splide/splide.min.js"></script>
+<script src="vendors/splide/splide-extension-auto-scroll.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/bom-lesson.js"></script>
+</body>
+
+</html>
