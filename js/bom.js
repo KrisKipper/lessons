@@ -40,18 +40,6 @@ document.getElementById('openWindow').addEventListener('click', function () {
     newWindow = window.open('https://example.com', '_blank', 'width=600,height=400');
 });
 
-document.getElementById('closeWindow').addEventListener('click', function () {
-    if (newWindow) {
-        newWindow.close();
-    } else {
-        alert("Нет открытого окна для закрытия");
-    }
-});
-
-document.getElementById('resizeWindow').addEventListener('click', function () {
-    window.resizeTo(800, 600);
-});
-
 // 5. Работа с location
 document.getElementById('showUrl').addEventListener('click', function () {
     console.log("Текущий URL:", window.location.href);
@@ -87,7 +75,9 @@ document.getElementById('showPrompt').addEventListener('click', function () {
 const saveInput = document.getElementById('saveInput');
 const saveButton = document.getElementById('saveButton');
 
+
 if (saveButton) {
+    console.log(saveButton);
     saveButton.addEventListener('click', () => {
         const text = saveInput.value.trim();
         localStorage.setItem('savedText', text);
